@@ -1,0 +1,597 @@
+/* --- Variables CSS --- */
+:root {
+    --primary-dark-blue: rgba(14, 9, 61, 0.979);
+    --secondary-red: rgb(247, 2, 2);
+    --light-gray: #EDEDED;
+    --text-dark: #333333;
+    --text-light: #fff;
+    --text-muted: #888888;
+    --accent-green: #4CAF50; /* Exemple de couleur d'accent pour boutons */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Réinitialisation et Base --- */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Préférable d'importer Poppins via Google Fonts */
+}
+
+body {
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif; /* Fallback si Poppins non chargé */
+    color: var(--text-dark);
+    background-color: #f8f8f8; /* Un fond légèrement grisé pour le corps */
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: var(--primary-dark-blue); /* Couleur harmonisée */
+    height: 85px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-color); /* Ombre légère pour le header */
+}
+
+label.logo {
+    color: var(--text-light);
+    font-size: 45px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease; /* Transition plus fluide */
+}
+
+a.active, a:hover {
+    background: var(--secondary-red); /* Couleur d'accentuation au survol/actif */
+    color: var(--text-light);
+}
+
+.checkbtn {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--text-light);
+    float: right;
+    line-height: 80px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none; /* Caché par défaut pour les grands écrans */
+}
+
+#check {
+    display: none; /* Cache la checkbox */
+}
+
+/* --- Section Hero (Accueil principal) --- */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080?text=SMARTNEL+Background') no-repeat center center/cover; /* Remplacez par votre image de fond */
+    color: var(--text-light);
+    text-align: center;
+    padding: 150px 20px 80px; /* Ajout de padding-top pour éviter le header fixe */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px; /* Hauteur minimale pour la section */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-red);
+    color: var(--text-light);
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: darken(var(--secondary-red), 10%); /* Ajuster la couleur au survol */
+    transform: translateY(-2px);
+}
+
+.hero-video-container {
+    width: 80%; /* Ajustez la largeur de la vidéo */
+    max-width: 900px;
+    aspect-ratio: 16 / 9; /* Ratio standard pour les vidéos */
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-video-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* --- Section "Nos Services" (Titre) --- */
+.Service {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+.Service h2 {
+    font-size: 2.5em;
+    color: var(--primary-dark-blue);
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.Service h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-red);
+    border-radius: 2px;
+}
+
+/* --- Section Présentation Intro --- */
+.presentation-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.presentation-intro p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+
+/* --- Grille des Services Détaillés --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille adaptative */
+    gap: 30px; /* Espacement entre les éléments */
+    padding: 0 50px 80px; /* Padding autour de la grille */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    background-color: var(--text-light);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-item .service-icon {
+    font-size: 3.5em;
+    color: var(--secondary-red); /* Couleur des icônes de service */
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    color: var(--primary-dark-blue);
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    font-size: 0.95em;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-dark-blue); /* Couleur harmonisée */
+    color: var(--text-light);
+    padding: 40px 20px 20px;
+    text-align: left;
+    box-shadow: 0 -2px 5px var(--shadow-color); /* Ombre légère pour le footer */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 280px; /* Largeur minimale pour les sections du footer */
+    margin-bottom: 30px;
+    padding-right: 20px; /* Espacement entre les colonnes */
+}
+
+.footer-section:last-child {
+    padding-right: 0;
+}
+
+.footer-section h2, .footer-section .titlecontat {
+    color: var(--text-light);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer-section h2::after, .footer-section .titlecontat::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-red);
+}
+
+.footer-section_about p,
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.footer-links div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-links .fas {
+    color: var(--secondary-red); /* Couleur des icônes de contact */
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.footer-links .texte {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95em;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-red);
+    text-decoration: underline;
+}
+
+/* Formulaire de contact du footer */
+.footer-contact .form-group {
+    margin-bottom: 15px;
+}
+
+.footer-contact label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.footer-contact input[type="email"],
+.footer-contact textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-size: 0.9em;
+    resize: vertical; /* Permet le redimensionnement vertical du textarea */
+}
+
+.footer-contact input[type="email"]::placeholder,
+.footer-contact textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-contact .send-btn {
+    width: auto;
+    padding: 10px 25px;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85em;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+}
+
+/* Bouton de retour en haut (s'il y en a un dans le script.js) */
+.scroll-to-top {
+    display: block; /* S'il est utilisé comme un bouton flottant, les styles seraient différents */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    color: var(--secondary-red);
+}
+
+/* --- Media Queries (pour la Responsivité) --- */
+
+/* Mobile Navigation */
+@media (max-width: 858px){
+    .checkbtn {
+        display: block;
+    }
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: var(--primary-dark-blue); /* Couleur harmonisée */
+        top: 85px; /* Ajusté à la hauteur de la nav */
+        left: -100%;
+        text-align: center;
+        transition: all .7s;
+        overflow-y: auto; /* Permet le défilement si le menu est très long */
+        padding-top: 20px; /* Espacement en haut du menu déroulant */
+    }
+    nav ul li {
+        display: block;
+        margin: 25px 0; /* Moins d'espace pour les mobiles */
+        line-height: normal; /* Réinitialiser la ligne-height */
+    }
+    nav ul li a {
+        font-size: 20px;
+        display: block; /* Pour que toute la zone du lien soit cliquable */
+        padding: 15px 0; /* Augmenter la zone de clic */
+    }
+    a:hover, a.active {
+        background: none; /* Pas de fond survol pour le menu mobile */
+        color: var(--secondary-red); /* Juste le changement de couleur du texte */
+    }
+    #check:checked ~ ul {
+        left: 0;
+    }
+    label.logo {
+        font-size: 30px;
+        padding-left: 20px; /* Moins de padding sur mobile */
+    }
+}
+
+/* Général pour tablettes et mobiles */
+@media (max-width: 952px) {
+    label.logo {
+        font-size: 38px; /* Ajusté pour les tablettes */
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+
+/* Hero section responsive */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* La vidéo et le texte s'empilent */
+        padding: 120px 20px 50px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        margin-bottom: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em; /* Taille de police plus petite */
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-video-container {
+        width: 100%; /* La vidéo prend toute la largeur */
+    }
+}
+
+/* Services Grid Responsive */
+@media screen and (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        padding: 0 20px 60px; /* Ajustement du padding */
+    }
+    .service-item {
+        padding: 25px;
+    }
+    .service-item .service-icon {
+        font-size: 3em;
+    }
+    .service-item h3 {
+        font-size: 1.3em;
+    }
+}
+
+/* Footer Responsive */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    
+    .footer-section {
+        min-width: unset; /* Annuler le min-width */
+        padding-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .footer-section h2::after, .footer-section .titlecontat::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-section_about p {
+        text-align: center; /* Centrer le texte "À propos" sur mobile */
+    }
+
+    .footer-links div {
+        justify-content: center; /* Centrer les icônes et texte sur mobile */
+    }
+
+    .footer-contact .send-btn {
+        width: 100%; /* Le bouton d'envoi prend toute la largeur */
+    }
+}
+
+/* Styles spécifiques qui étaient dans votre code mais non utilisés ou à nettoyer */
+/*
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 90px;
+    justify-content: center;
+}
+.box {
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1200;
+}
+nav .defil {
+    border: 2px solid rgb(10, 10, 10);
+    background-color: rgb(240, 5, 5);
+    color: white;
+}
+.blok {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    text-align: justify;
+    padding: 10px;
+}
+@media screen and (max-width:1500px) {
+    .blok {
+        width: 100%;
+        height: 100%;
+    }
+}
+@media screen and (max-width:1100px) {
+    .blok {
+        background-color: white;
+    }
+}
+@media screen and (max-width:1100px) {
+    video {
+        width: 100%;
+        height: 15%;
+    }
+    img {
+        width: 100%;
+        height: 20%;
+    }
+    iframe {
+        width: 100%;
+        height: 160%;
+    }
+}
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.footer-section .txtM {
+    margin-right: 97px;
+}
+.footer-section .txtE {
+    margin-right: 120px;
+}
+.footer-section .txtb {
+    margin-right: 135px;
+    cursor: pointer;
+}
+.footer-section .titlecontat {
+    margin-right: 35px;
+}
+.links {
+    text-align: justify;
+    margin-left: 12%;
+}
+@media screen and (max-width: 768px) {
+    .links {
+        margin-left: 2px;
+    }
+    .footer-section_about {
+        margin-left: 5px;
+        text-align: justify;
+    }
+}
+@media screen and (max-width: 768px) {
+    .footer-section {
+        margin-left: 2px;
+        text-align: justify;
+    }
+}
+*/

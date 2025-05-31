@@ -1,0 +1,1012 @@
+/* --- Variables CSS --- */
+:root {
+    --primary-dark-blue: rgba(14, 9, 61, 0.979);
+    --secondary-red: rgb(247, 2, 2);
+    --light-gray: #EDEDED;
+    --text-dark: #333333;
+    --text-light: #fff;
+    --text-muted: #888888;
+    --accent-green: #4CAF50; /* Exemple de couleur d'accent pour boutons */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Keyframes pour les animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Réinitialisation et Base --- */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    /* Importer Poppins via Google Fonts dans le <head> pour une meilleure compatibilité */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif; /* Fallback si Poppins non chargé */
+    color: var(--text-dark);
+    background-color: #f8f8f8; /* Un fond légèrement grisé pour le corps */
+    overflow-x: hidden; /* Empêche le défilement horizontal dû aux animations */
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: var(--primary-dark-blue); /* Couleur harmonisée */
+    height: 85px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-color); /* Ombre légère pour le header */
+    animation: fadeIn 0.8s ease-out; /* Animation d'entrée pour la nav */
+}
+
+label.logo {
+    color: var(--text-light);
+    font-size: 45px;
+    line-height: 80px;
+    padding-left: 100px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+} 
+@media screen and (max-width:767) {
+    label.log{
+       
+    }
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease; /* Transition plus fluide */
+}
+
+a.active, a:hover {
+    background: var(--secondary-red); /* Couleur d'accentuation au survol/actif */
+    color: var(--text-light);
+}
+
+.checkbtn {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--text-light);
+    float: right;
+    line-height: 80px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none; /* Caché par défaut pour les grands écrans */
+}
+
+#check {
+    display: none; /* Cache la checkbox */
+}
+
+/* --- Sections d'introduction (Hero général et page-intro) --- */
+/* Styles pour la section HERO de la page d'accueil (Index.html) */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080?text=SMARTNEL+Background') no-repeat center center/cover; /* Remplacez par votre image de fond */
+    color: var(--text-light);
+    text-align: center;
+    padding: 150px 20px 80px; /* Ajout de padding-top pour éviter le header fixe */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px; /* Hauteur minimale pour la section */
+    animation: fadeIn 1s ease-out; /* Animation d'entrée pour le hero */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease-out 0.3s forwards; /* Animation d'entrée avec délai */
+    opacity: 0; /* Caché initialement pour l'animation */
+}
+
+/* Styles pour les sections d'introduction des autres pages (About, Contact, Services) */
+.page-intro {
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding: 150px 20px 80px; /* Ajusté pour laisser de la place au header fixe */
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-out; /* Animation d'entrée pour les intros */
+}
+
+
+/* --- Boutons généraux --- */
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-red);
+    color: var(--text-light);
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Ajout box-shadow */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+}
+
+.btn:hover {
+    background-color: darken(var(--secondary-red), 10%); /* Ajuster la couleur au survol */
+    transform: translateY(-3px); /* Effet de levée */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-small {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+/* --- Titre de section générique (utilisé sur Index, Services, Contact, etc.) --- */
+.Service { /* Utilisé pour le titre "Nos Services" sur Index.html */
+    text-align: center;
+    padding: 60px 20px 30px;
+    animation: fadeIn 1s ease-out; /* Animation pour le titre de section */
+}
+
+.Service h2 {
+    font-size: 2.5em;
+    color: var(--primary-dark-blue);
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.Service h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-red);
+    border-radius: 2px;
+}
+
+/* --- Section Présentation Intro (pour les paragraphes d'introduction sur Index, Services, Contact) --- */
+.presentation-intro { /* Nouvelle classe pour le paragraphe d'introduction sous le titre */
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    animation: fadeInUp 1s ease-out 0.5s forwards; /* Animation avec délai */
+    opacity: 0;
+}
+
+.presentation-intro p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+/* --- Grille des Services Détaillés (utilisée sur Index et Services) --- */
+.services-overview { /* Conteneur pour la grille de services sur Services.html */
+    padding-bottom: 80px;
+}
+
+.services-grid { /* La grille elle-même */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille adaptative */
+    gap: 30px; /* Espacement entre les éléments */
+    padding: 0 50px; /* Padding autour de la grille */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    background-color: var(--text-light);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Caché initialement pour l'animation d'entrée */
+}
+
+.service-item:hover {
+    transform: translateY(-10px) scale(1.02); /* Effet de levée et léger agrandissement au survol */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+}
+
+.service-item .service-icon {
+    font-size: 4em; /* Icônes plus grandes */
+    color: var(--secondary-red); /* Couleur des icônes de service */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover .service-icon {
+    transform: rotateY(180deg); /* Animation de rotation pour les icônes au survol */
+}
+
+
+.service-item h3 {
+    font-size: 1.6em; /* Titres plus grands */
+    color: var(--primary-dark-blue);
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    font-size: 0.98em;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Animations d'entrée pour les service-items */
+/* Appliquez ces classes directement aux divs .service-item dans votre HTML (par exemple dans Services.html et Index.html) */
+.fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--primary-dark-blue); /* Couleur harmonisée */
+    color: var(--text-light);
+    padding: 40px 20px 20px;
+    text-align: left;
+    box-shadow: 0 -2px 5px var(--shadow-color); /* Ombre légère pour le footer */
+    animation: fadeIn 1s ease-out 1.2s forwards; /* Animation d'entrée pour le footer */
+    opacity: 0; /* Caché initialement pour l'animation */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 280px; /* Largeur minimale pour les sections du footer */
+    margin-bottom: 30px;
+    padding-right: 20px; /* Espacement entre les colonnes */
+}
+
+.footer-section:last-child {
+    padding-right: 0;
+}
+
+.footer-section h2, .footer-section .titlecontat {
+    color: var(--text-light);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer-section h2::after, .footer-section .titlecontat::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-red);
+}
+
+.footer-section_about p,
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.footer-links div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-links .fas {
+    color: var(--secondary-red); /* Couleur des icônes de contact */
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.footer-links .texte {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95em;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-red);
+    text-decoration: underline;
+}
+
+/* Formulaire de contact du footer */
+.footer-contact .form-group {
+    margin-bottom: 15px;
+}
+
+.footer-contact label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.footer-contact input[type="email"],
+.footer-contact textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-size: 0.9em;
+    resize: vertical; /* Permet le redimensionnement vertical du textarea */
+}
+
+.footer-contact input[type="email"]::placeholder,
+.footer-contact textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-contact .send-btn {
+    width: auto;
+    padding: 10px 25px;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85em;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+}
+
+/* Bouton de retour en haut (s'il y en a un dans le script.js) */
+.scroll-to-top {
+    display: block; /* S'il est utilisé comme un bouton flottant, les styles seraient différents */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    color: var(--secondary-red);
+}
+
+/* --- Styles spécifiques à la page "À Propos" --- */
+.about-hero {
+    /* Peut être une image de fond spécifique pour la page About si désiré */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('URL_IMAGE_ABOUT_ICI') no-repeat center center/cover; */
+}
+
+.about-section {
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur petits écrans */
+    align-items: center;
+    gap: 40px; /* Espacement entre le texte et l'image */
+}
+
+.about-text {
+    flex: 2; /* Prend plus d'espace */
+    min-width: 300px; /* Largeur minimale avant de passer à la ligne */
+}
+
+.about-text h2 {
+    font-size: 2.2em;
+    color: var(--primary-dark-blue);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-red);
+    border-radius: 2px;
+}
+
+.about-text p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.about-image {
+    flex: 1; /* Prend moins d'espace */
+    min-width: 250px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.mision-vision-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 60px 50px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--light-gray); /* Fond légèrement différent pour cette section */
+    border-radius: 8px;
+}
+
+.mvv-item {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-align: center;
+}
+
+.mvv-item .mvv-icon {
+    font-size: 3.5em;
+    color: var(--secondary-red);
+    margin-bottom: 20px;
+}
+
+.mvv-item h3 {
+    font-size: 1.6em;
+    color: var(--primary-dark-blue);
+    margin-bottom: 15px;
+}
+
+.mvv-item p, .mvv-item ul {
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.mvv-item ul {
+    list-style: none;
+    padding: 0;
+    text-align: left; /* Alignement du texte des valeurs */
+    margin-top: 10px;
+}
+
+.mvv-item ul li {
+    margin-bottom: 5px;
+}
+
+.cta-section {
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding: 80px 20px;
+    animation: fadeIn 1s ease-out 1s forwards; /* Animation d'entrée */
+    opacity: 0; /* Caché initialement pour l'animation */
+}
+
+.cta-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.cta-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+
+/* --- Styles spécifiques à la page "Contact" --- */
+.contact-hero {
+    /* Peut être une image de fond spécifique pour la page Contact si désiré */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('URL_IMAGE_CONTACT_ICI') no-repeat center center/cover; */
+}
+
+.contact-main-section {
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.contact-form-container {
+    flex: 2; /* Prend plus d'espace pour le formulaire */
+    min-width: 320px; /* Largeur minimale */
+    background-color: var(--text-light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    animation: fadeInUp 1s ease-out 0.6s forwards; /* Animation d'entrée */
+    opacity: 0; /* Caché initialement pour l'animation */
+}
+
+.contact-form-container h2 {
+    font-size: 2em;
+    color: var(--primary-dark-blue);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.main-contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.main-contact-form label {
+    display: block;
+    font-size: 1em;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.main-contact-form input[type="text"],
+.main-contact-form input[type="email"],
+.main-contact-form input[type="tel"],
+.main-contact-form select,
+.main-contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-dark);
+    background-color: #fcfcfc;
+}
+
+.main-contact-form textarea {
+    resize: vertical;
+}
+
+.main-contact-form input:focus,
+.main-contact-form select:focus,
+.main-contact-form textarea:focus {
+    border-color: var(--secondary-red);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(247, 2, 2, 0.2);
+}
+
+.contact-info-container {
+    flex: 1; /* Prend moins d'espace pour les infos */
+    min-width: 280px;
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    animation: fadeInUp 1s ease-out 0.8s forwards; /* Animation d'entrée */
+    opacity: 0; /* Caché initialement pour l'animation */
+}
+
+.contact-info-container h2 {
+    font-size: 1.8em;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+.contact-info-container h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-red);
+    border-radius: 2px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-item .fas {
+    font-size: 1.5em;
+    color: var(--secondary-red);
+    margin-right: 15px;
+    width: 30px; /* Largeur fixe pour alignement */
+    text-align: center;
+}
+
+.info-item p, .info-item a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1em;
+}
+.info-item a:hover {
+    color: var(--secondary-red);
+    text-decoration: underline;
+}
+
+.contact-info-container h3 {
+    font-size: 1.3em;
+    color: var(--text-light);
+    margin-top: 40px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--secondary-red);
+    transform: translateY(-3px);
+}
+
+.map-section {
+    padding: 80px 0;
+    text-align: center;
+    animation: fadeInUp 1s ease-out 1s forwards; /* Animation d'entrée */
+    opacity: 0; /* Caché initialement pour l'animation */
+}
+
+.map-section h2 {
+    font-size: 2.5em;
+    color: var(--primary-dark-blue);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+.map-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-red);
+    border-radius: 2px;
+}
+
+
+.map-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
+
+/* --- Media Queries (pour la Responsivité) --- */
+
+/* Mobile Navigation */
+@media (max-width: 858px){
+    .checkbtn {
+        display: block;
+    }
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: var(--primary-dark-blue); /* Couleur harmonisée */
+        top: 85px; /* Ajusté à la hauteur de la nav */
+        left: -100%;
+        text-align: center;
+        transition: all .7s;
+        overflow-y: auto; /* Permet le défilement si le menu est très long */
+        padding-top: 20px; /* Espacement en haut du menu déroulant */
+    }
+    nav ul li {
+        display: block;
+        margin: 25px 0; /* Moins d'espace pour les mobiles */
+        line-height: normal; /* Réinitialiser la ligne-height */
+    }
+    nav ul li a {
+        font-size: 20px;
+        display: block; /* Pour que toute la zone du lien soit cliquable */
+        padding: 15px 0; /* Augmenter la zone de clic */
+    }
+    a:hover, a.active {
+        background: none; /* Pas de fond survol pour le menu mobile */
+        color: var(--secondary-red); /* Juste le changement de couleur du texte */
+    }
+    #check:checked ~ ul {
+        left: 0; /* L'animation se déclenche ici, faisant glisser le menu depuis la gauche */
+    }
+    label.logo {
+        font-size: 30px;
+        padding-left: 20px; /* Moins de padding sur mobile */
+    }
+}
+
+/* Général pour tablettes et mobiles */
+@media (max-width: 952px) {
+    label.logo {
+        font-size: 38px; /* Ajusté pour les tablettes */
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+
+/* Hero section responsive */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* La vidéo et le texte s'empilent */
+        padding: 120px 20px 50px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        margin-bottom: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em; /* Taille de police plus petite */
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-video-container {
+        width: 100%; /* La vidéo prend toute la largeur */
+    }
+
+    /* Page About - Responsive */
+    .page-intro {
+        padding: 120px 20px 60px;
+        min-height: 300px;
+    }
+
+    .intro-content h1 {
+        font-size: 2.2em;
+    }
+
+    .intro-content p {
+        font-size: 1em;
+    }
+
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    .about-content {
+        flex-direction: column; /* Empiler l'image et le texte */
+        gap: 30px;
+    }
+
+    .about-image {
+        order: -1; /* L'image apparaît avant le texte sur mobile */
+    }
+
+    .about-text h2 {
+        text-align: center;
+    }
+
+    .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .about-text p {
+        text-align: justify; /* Maintient le texte justifié si désiré */
+    }
+
+    .mision-vision-values {
+        grid-template-columns: 1fr; /* Une colonne sur mobile */
+        padding: 40px 20px;
+    }
+
+    .mvv-item {
+        padding: 25px;
+    }
+
+    .mvv-item .mvv-icon {
+        font-size: 3em;
+    }
+
+    .mvv-item h3 {
+        font-size: 1.4em;
+    }
+
+    .mvv-item ul {
+        text-align: center; /* Centrer la liste des valeurs sur mobile */
+    }
+
+    .cta-section {
+        padding: 60px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 2em;
+    }
+
+    .cta-section p {
+        font-size: 0.9em;
+    }
+
+    /* Contact Page - Responsive */
+    .contact-main-section {
+        padding: 60px 20px;
+    }
+
+    .contact-content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-form-container,
+    .contact-info-container {
+        padding: 30px;
+    }
+
+    .contact-form-container h2,
+    .contact-info-container h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    .contact-info-container h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .map-section {
+        padding: 40px 0;
+    }
+
+    .map-section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    /* Services Page - Responsive */
+    .services-overview {
+        padding-bottom: 60px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        padding: 0 20px;
+    }
+    .service-item {
+        padding: 25px;
+    }
+    .service-item .service-icon {
+        font-size: 3.5em;
+    }
+    .service-item h3 {
+        font-size: 1.4em;
+    }
+}
+
+/* Footer Responsive */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    
+    .footer-section {
+        min-width: unset; /* Annuler le min-width */
+        padding-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .footer-section h2::after, .footer-section .titlecontat::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-section_about p {
+        text-align: center; /* Centrer le texte "À propos" sur mobile */
+    }
+
+    .footer-links div {
+        justify-content: center; /* Centrer les icônes et texte sur mobile */
+    }
+
+    .footer-contact .send-btn {
+        width: 100%; /* Le bouton d'envoi prend toute la largeur */
+    }
+}
